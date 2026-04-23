@@ -1,0 +1,41 @@
+[project]
+name = "evchargestation-optimizer"
+version = "0.1.0"
+description = "Uses machine learning optimization techniques and the Google Maps API to find the ideal location for new electric vehicle charging infrastructure"
+authors = [{ name = "Ryan Rickerts", email = "ryan@deepsearising.com" }]
+requires-python = ">=3.12,<4"
+readme = "README.md"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "google-cloud-storage>=2.14.0,<3",
+    "google-maps-places>=0.1.6,<0.2",
+    "google-maps-routing>=0.6.3,<0.7",
+    "google-api-core>=2.15.0,<3",
+    "pandas>=2.1.4,<3",
+    "numpy>=1.26.2,<2",
+]
+
+[dependency-groups]
+dev = [
+    "python-dotenv>=1.0.0,<2",
+    "pytest>=7.4.3,<8",
+]
+
+[tool.uv]
+default-groups = "all"
+
+[build-system]
+requires = ["uv_build>=0.11.2,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning"
+]
