@@ -9,6 +9,53 @@ According to government data cited in a late Dec 2023 [article in the WSJ](https
 
 Also cited in this article are the difficulties EV charging companies have remaining economically viable during this classic "chicken-and-egg" problem of supplying the EV charging infrastructure needed in advance of demand for EVs in order to reduce range anxiety and consumers' reluctance to commit to an EV purchase. However, the capital investment required to build out charging locations before consumers are buying electricity places a heavy burden on the for-profit EVSE enterprise. Placing this infrastructure in strategically optimized locations could help them acheive return on their investment in the near term.
 
+## Open Charge Data
+OpenStreetMap (OSM) data doesn't look like a finished map in its raw form; instead, it's a structured collection of geographic primitives. It essentially describes the world using a simple "tagging" system based on key-value pairs.
+
+At its core, OSM is built from three basic elements:
+1. Nodes
+
+Nodes are specific points on the earth's surface defined by latitude and longitude.
+
+    Purpose: They represent standalone features like a tree, a post box, or a water fountain.
+
+    Role in larger structures: They serve as the "dots" that are connected to form lines and shapes.
+
+2. Ways
+
+Ways are ordered lists of nodes.
+
+    Open Ways: Represent linear features like roads, rivers, or railways.
+
+    Closed Ways: When the last node is the same as the first, it forms a loop. These represent areas (polygons) like buildings, parks, or lakes.
+
+3. Relations
+
+Relations are logical groupings that describe how nodes and ways interact.
+
+    Purpose: They handle complex structures, such as a bus route (a collection of many roads) or a building with a courtyard (a "hole" inside an area).
+
+The Data Format: XML and Tags
+
+While the data can be delivered in various formats (like PBF for efficiency), the human-readable version is XML. Every element can have Tags that describe what it is.
+
+For example, a simple "Shop" node might look like this in the raw data:
+XML
+
+<node id="123456" lat="52.5200" lon="13.4050" version="1" timestamp="2024-01-01T12:00:00Z">
+  <tag k="shop" v="bakery"/>
+  <tag k="name" v="The Golden Crust"/>
+  <tag k="opening_hours" v="Mo-Fr 08:00-18:00"/>
+</node>
+
+Key Characteristics
+
+    Key-Value Pairs: The logic is always key=value (e.g., highway=residential or amenity=restaurant).
+
+    Metadata: Every element includes a version number, a timestamp, and the username of the person who last edited it.
+
+    Topology-based: The data emphasizes how things connect rather than just how they appear visually. A "road" is technically just a list of ID numbers referring to specific coordinates.
+
 ## Sample Script Run
 An example in `src/main.py` after loading lat/long values from a .csv file in Google Cloud Storage into a Pandas dataframe
 ```python
