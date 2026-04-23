@@ -85,8 +85,6 @@ The first task is to select the starting point from which to target a new neares
 #### [AAA EVs Out of Charge data](https://autoinsights.aaa.biz/products/evs-out-of-charge)
 This data was selected first, specifically targeting places where their customers have had to call for assistance due to an out-of-charge incident. 
 
-Since this data costs $200 per state and year of data, I have purchased this out-of-pocket and placed the files in a private bucket only my Google Cloud credentials can access.
-
 #### [EVRI eRoadMap](https://eroadmap.epri.com/)
 
 An interactive map showing where electricity infrastructure is needed to accomodate full electrification of all vehicles by 2030.
